@@ -1,5 +1,10 @@
+
+// comentarios P/revisor 
+// si vas a usar una tasa de interes con decimales asegurarese de poner el input en base a cmo tengas el idioma de la pc. Ejemplo ingles 4.4 español 4,4
+// ahora las funciones se usan una sola vez pero luego en el PF se usan mas de una
+
 let monto = prompt("Ingrese el monto del crédito:");
-let interes = prompt("Ingrese la tasa de interés anual (%):");
+let interes = prompt("Ingrese la tasa de interés anual (%) solo el numero:");
 let plazo = prompt("Ingrese el plazo en años:");
 
 function validarDatos(monto, interes, plazo) {
@@ -30,10 +35,8 @@ function calcularCuotaMensual(monto, interes, plazo) {
         console.log(`Mes ${mes}: Pago de $${cuota.toFixed(2)}`);
     }
 }
-
-// Validación de datos ingresados
 if (validarDatos(monto, interes, plazo)) {
-    // Convertir a número antes de pasar a la función
+    // convertir valores a numericos
     calcularCuotaMensual(Number(monto), Number(interes), Number(plazo));
 } else {
     console.log("Datos inválidos, por favor inténtelo de nuevo.");
