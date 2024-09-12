@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Crédito Hipotecario</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <p class="alerta">*No usar el form usar consola*</p>
+    <h1>Simulador Crédito Hipotecario</h1>
+    <p>Simulador y calculadora de crédito hipotecario UVA. Cuotas, ingresos necesarios, y valor de la propiedad.</p>
+
+    <form>
+        <div class="input-group">
+            <label for="banco">Seleccionar un banco:</label>
+            <select id="banco" name="banco">
+                <option value="">Seleccionar un banco</option>
+                <option value=""> Banco Hipotecario</option>
+                <option value="">Banco Ciudad</option>
+                <option value="">Supervielle</option>
+                <option value="">ICBC</option>
+                <option value="">Brubank</option>
+                <option value="">Nacion</option>
+                <option value="">Santander</option>
+                <option value="">Macro</option>
+                <option value="">BBVA</option>
+                <option value="">Galicia</option>
+                <option value="">Patagonia</option>
+                <option value="">Credicop</option>
+                <!-- Opciones de bancos -->
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="financiacion">¿Cobras Sueldo en el Banco?</label>
+            <select id="sueldo" name="sueldo">
+                <option value="">Seleccionar</option>
+                <option value="">Si</option>
+                <option value="">No</option>
+                </select>
+        </div>
+        <div class="input-group">
+            <label for="valor-propiedad">Valor de la propiedad (USD):</label>
+            <input type="number" id="valor-propiedad" name="valor-propiedad" placeholder="$" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="valor-propiedad"> Monto a Solicitar (USD):</label>
+            <input type="number" id="monto-solicitado" name="monto-solicitado" placeholder="$" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="financiacion">Financiación (%):</label>
+            <input type="number" id="financiacion" name="financiacion" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="tasa-nominal">Tasa Nominal Anual:</label>
+            <input type="number" id="tasa-nominal" name="tasa-nominal" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="plazo-credito">Plazo del crédito (años):</label>
+            <input type="number" id="plazo-credito" name="plazo-credito">
+        </div>
+
+        <div class="input-group">
+            <label for="fecha-credito">Fecha solicitud de crédito:</label>
+            <input type="date" id="fecha-credito" name="fecha-credito">
+        </div>
+
+        <div class="input-group">
+            <label for="tipo-cambio-usd">Tipo de cambio USD (Cotización al día de hoy):</label>
+            <input type="number" id="tipo-cambio-usd" name="tipo-cambio-usd" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="tipo-cambio-uva">Tipo de cambio UVA (Cotización al día de hoy):</label>
+            <input type="number" id="tipo-cambio-uva" name="tipo-cambio-uva" step="0.01">
+        </div>
+    </form>
+<script src="./main.js"></script>
+</body>
+</html>
