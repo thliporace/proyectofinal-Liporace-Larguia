@@ -1,0 +1,250 @@
+{
+"status": 200,
+"results": [
+    {
+    "idVariable": 1,
+    "cdSerie": 246,
+    "descripcion": "Reservas Internacionales del BCRA\u00A0(en millones de dólares - cifras provisorias sujetas a cambio de valuación)",
+    "fecha": "2024-09-20",
+    "valor": 27264.0
+    },
+    {
+    "idVariable": 4,
+    "cdSerie": 7927,
+    "descripcion": "Tipo de Cambio Minorista ($ por USD) Comunicación B 9791 - Promedio vendedor",
+    "fecha": "2024-09-24",
+    "valor": 1000.95
+    },
+    {
+    "idVariable": 5,
+    "cdSerie": 272,
+    "descripcion": "Tipo de Cambio Mayorista ($ por USD) Comunicación A 3500\u00A0- Referencia",
+    "fecha": "2024-09-24",
+    "valor": 966.75
+    },
+    {
+    "idVariable": 6,
+    "cdSerie": 7935,
+    "descripcion": "Tasa de Política Monetaria (en % n.a.)",
+    "fecha": "2024-09-24",
+    "valor": 40.0
+    },
+    {
+    "idVariable": 7,
+    "cdSerie": 1222,
+    "descripcion": "BADLAR en pesos de bancos privados (en % n.a.)",
+    "fecha": "2024-09-23",
+    "valor": 40.0625
+    },
+    {
+    "idVariable": 8,
+    "cdSerie": 7922,
+    "descripcion": "TM20 en pesos de bancos privados\u00A0(en % n.a.)",
+    "fecha": "2024-09-23",
+    "valor": 41.8125
+    },
+    {
+        "idVariable": 9,
+        "cdSerie": 7920,
+        "descripcion": "Tasas de interés de las operaciones de pase activas para el BCRA, a 1 día de plazo\u00A0(en % n.a.)",
+        "fecha": "2024-09-25",
+        "valor": 45.0
+    },
+    {
+        "idVariable": 10,
+        "cdSerie": 7921,
+        "descripcion": "Tasas de interés de las operaciones de pase pasivas para el BCRA, a 1 día de plazo\u00A0(en % n.a.)",
+        "fecha": "2024-07-19",
+        "valor": 40.0
+    },
+    {
+        "idVariable": 11,
+        "cdSerie": 3139,
+        "descripcion": "Tasas de interés por préstamos entre entidades financiera privadas (BAIBAR)\u00A0(en % n.a.)",
+        "fecha": "2024-09-23",
+        "valor": 43.4
+    },
+    {
+        "idVariable": 12,
+        "cdSerie": 1212,
+        "descripcion": "Tasas de interés por depósitos a 30 días de plazo en entidades financieras\u00A0(en % n.a.)",
+        "fecha": "2024-09-23",
+        "valor": 38.8
+    },
+    {
+        "idVariable": 13,
+        "cdSerie": 7924,
+        "descripcion": "Tasa de interés de préstamos por adelantos en cuenta corriente",
+        "fecha": "2024-09-23",
+        "valor": 48.14
+    },
+    {
+        "idVariable": 14,
+        "cdSerie": 7925,
+        "descripcion": "Tasa de interés de préstamos personales",
+        "fecha": "2024-09-23",
+        "valor": 70.18
+    },
+    {
+        "idVariable": 15,
+        "cdSerie": 250,
+        "descripcion": "Base monetaria\u00A0- Total (en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 22594386.0
+    },
+    {
+        "idVariable": 16,
+        "cdSerie": 251,
+        "descripcion": "Circulación monetaria\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 14631599.0
+    },
+    {
+        "idVariable": 17,
+        "cdSerie": 251,
+        "descripcion": "Billetes y monedas en poder del público\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 13142673.0
+    },
+    {
+        "idVariable": 18,
+        "cdSerie": 296,
+        "descripcion": "Efectivo en entidades financieras\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 1488926.0
+    },
+    {
+        "idVariable": 19,
+        "cdSerie": 252,
+        "descripcion": "Depósitos de los bancos en cta. cte. en pesos en el BCRA\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 7962787.0
+    },
+    {
+        "idVariable": 21,
+        "cdSerie": 444,
+        "descripcion": "Depósitos en efectivo en las entidades financieras - Total (en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 112321364.0
+    },
+    {
+        "idVariable": 22,
+        "cdSerie": 446,
+        "descripcion": "En cuentas corrientes (neto de utilización FUCO)\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 20288381.0
+    },
+    {
+        "idVariable": 23,
+        "cdSerie": 450,
+        "descripcion": "En Caja de ahorros\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 40023037.0
+    },
+    {
+        "idVariable": 24,
+        "cdSerie": 452,
+        "descripcion": "A plazo (incluye inversiones y excluye CEDROS)\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 45402527.0
+    },
+    {
+        "idVariable": 25,
+        "cdSerie": 7919,
+        "descripcion": "M2 privado, promedio móvil de 30 días, variación interanual\u00A0(en %)",
+        "fecha": "2024-09-20",
+        "valor": 156.3
+    },
+    {
+        "idVariable": 26,
+        "cdSerie": 392,
+        "descripcion": "Préstamos de las entidades financieras al sector privado\u00A0(en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 46882947.0
+    },
+    {
+        "idVariable": 27,
+        "cdSerie": 7931,
+        "descripcion": "Inflación mensual (variación en %)",
+        "fecha": "2024-08-31",
+        "valor": 4.2
+    },
+    {
+        "idVariable": 28,
+        "cdSerie": 7932,
+        "descripcion": "Inflación interanual\u00A0(variación en % i.a.)",
+        "fecha": "2024-08-31",
+        "valor": 236.7
+    },
+    {
+        "idVariable": 29,
+        "cdSerie": 7933,
+        "descripcion": "Inflación esperada - REM próximos 12 meses\u00A0- MEDIANA (variación en % i.a)",
+        "fecha": "2024-08-31",
+        "valor": 44.7
+    },
+    {
+        "idVariable": 30,
+        "cdSerie": 3540,
+        "descripcion": "CER\u00A0(Base 2.2.2002=1)",
+        "fecha": "2024-09-25",
+        "valor": 466.1262
+    },
+    {
+        "idVariable": 31,
+        "cdSerie": 7913,
+        "descripcion": "Unidad de Valor Adquisitivo (UVA)\u00A0(en pesos -con dos decimales-, base 31.3.2016=14.05)",
+        "fecha": "2024-09-25",
+        "valor": 1175.51
+    },
+    {
+        "idVariable": 32,
+        "cdSerie": 7914,
+        "descripcion": "Unidad de Vivienda (UVI)\u00A0(en pesos -con dos decimales-, base 31.3.2016=14.05)",
+        "fecha": "2024-09-25",
+        "valor": 898.74
+    },
+    {
+        "idVariable": 34,
+        "cdSerie": 7936,
+        "descripcion": "Tasa de Política Monetaria (en % e.a.)",
+        "fecha": "2024-09-24",
+        "valor": 49.15
+    },
+    {
+        "idVariable": 35,
+        "cdSerie": 7937,
+        "descripcion": "BADLAR en pesos de bancos privados (en % e.a.)",
+        "fecha": "2024-09-23",
+        "valor": 48.25
+    },
+    {
+        "idVariable": 40,
+        "cdSerie": 7988,
+        "descripcion": "Índice para Contratos de Locación (ICL-Ley 27.551, con dos decimales, base 30.6.20=1)",
+        "fecha": "2024-09-25",
+        "valor": 18.8
+    },
+    {
+        "idVariable": 41,
+        "cdSerie": 7990,
+        "descripcion": "Tasas de interés de las operaciones de pase pasivas para el BCRA, a 1 día de plazo\u00A0(en % e.a.)",
+        "fecha": "2024-07-19",
+        "valor": 49.15
+    },
+    {
+        "idVariable": 42,
+        "cdSerie": 266,
+        "descripcion": "Pases pasivos para el BCRA - Saldos (en millones de pesos)",
+        "fecha": "2024-09-20",
+        "valor": 0.0
+    },
+    {
+        "idVariable": 43,
+        "cdSerie": 3539,
+        "descripcion": "Tasa de interés para uso de la Justicia – Comunicado P 14290 | Base 01/04/1991 (en %)",
+        "fecha": "2024-09-25",
+        "valor": 16600.5048
+    }
+]
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizaciones de Divisas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <h1>Cotizaciones de Divisas por Fecha</h1>
+
+    <!-- Campo de entrada para la fecha -->
+    <label for="fecha">Ingrese la fecha:</label>
+    <input type="date" id="fecha" name="fecha">
+    
+    <!-- selector de moneda-->
+    <label for="moneda">Seleccione la moneda:</label>
+    <select id="moneda" name="moneda">
+        <option value="">Seleccione la Moneda deseada</option>
+        <option value="VEB">Bolívares (VEB)</option>
+        <option value="BOB">Bolivianos (BOB)</option>
+        <option value="ATS">Chelines Austriacos (ATS)</option>
+        <option value="COP">Colombianos (COP)</option>
+        <option value="NIO">Córdoba Nicaragüense (NIO)</option>
+        <option value="NIO">Córdobas (NIO)</option>
+        <option value="CZK">Coronas Checas (CZK)</option>
+        <option value="DKK">Coronas Danesas (DKK)</option>
+        <option value="NOK">Coronas Noruega (NOK)</option>
+        <option value="SEK">Coronas Suecas (SEK)</option>
+        <option value="RSD">Dinar Serbia (RSD)</option>
+        <option value="AUD">Dólar Australia (AUD)</option>
+        <option value="CAD">Dólar Canadiense (CAD)</option>
+        <option value="SGD">Dólar de Singapur (SGD)</option>
+        <option value="USD">Dólar E.E.U.U. (USD)</option>
+        <option value="HKD">Dólar Hong Kong (HKD)</option>
+        <option value="NZD">Dólar Neozelandés (NZD)</option>
+        <option value="REF">Dólar Referencia Com 3500 (REF)</option>
+        <option value="VND">Dong Vietnam (c/1.000 unidades) (VND)</option>
+        <option value="EUR">Euro (EUR)</option>
+        <option value="CHF">Franco Suizo (CHF)</option>
+        <option value="PYG">Guaraníes (PYG)</option>
+        <option value="GBP">Libra Esterlina (GBP)</option>
+        <option value="ILS">Libra Israelí (ILS)</option>
+        <option value="TRY">Lira Turca (TRY)</option>
+        <option value="CLP">Peso Chileno (CLP)</option>
+        <option value="MXP">Peso Mexicano (MXP)</option>
+        <option value="UYU">Peso Uruguayo (UYU)</option>
+        <option value="ZAR">Rand Sud (ZAR)</option>
+        <option value="BRL">Real (BRL)</option>
+        <option value="INR">Rupia (India) (INR)</option>
+        <option value="RUB">Rusia (RUB)</option>
+        <option value="PEN">Soles (PEN)</option>
+        <option value="JPY">Yens (JPY)</option>
+    </select><br><br>
+    <!-- Botón para buscar cotizaciones -->
+    <button onclick="buscarCotizaciones()" ondblclick="buscarUva()">Buscar Cotizaciones</button>
+
+    <!-- Div para mostrar el resultado -->
+    <div id="resultado"></div>
+
+    <!-- Busqueda valor uva -->
+    <label for="fechaI">Ingrese la fecha inicial:</label>
+    <input type="date" id="fechaI" name="fechaI">
+    <label for="fechaH">Ingrese la fecha final:</label>
+    <input type="date" id="fechaH" name="fechaH">
+    
+    <button onclick="buscarUva()">Buscar Uva</button>
+    <!-- Div para mostrar el resultado -->
+    <div id="resultadoUva"></div>
+
+    <button><a href="../index.html">volver al incio</a></button>
+    <script src="../js/uva.js"></script>
+    <script src="../js/cotizador.js"></script>
+
+</body>
+</html>

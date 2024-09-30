@@ -7,36 +7,36 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <p class="alerta">*No usar el form usar consola*</p>
+    
     <h1>Simulador Crédito Hipotecario</h1>
     <p>Simulador y calculadora de crédito hipotecario UVA. Cuotas, ingresos necesarios, y valor de la propiedad.</p>
-
     <form>
         <div class="input-group">
             <label for="banco">Seleccionar un banco:</label>
-            <select id="banco" name="banco">
+            <select id="banco" name="banco" onchange="mostrarPersonalizado()">
                 <option value="">Seleccionar un banco</option>
-                <option value=""> Banco Hipotecario</option>
-                <option value="">Banco Ciudad</option>
-                <option value="">Supervielle</option>
-                <option value="">ICBC</option>
-                <option value="">Brubank</option>
-                <option value="">Nacion</option>
-                <option value="">Santander</option>
-                <option value="">Macro</option>
-                <option value="">BBVA</option>
-                <option value="">Galicia</option>
-                <option value="">Patagonia</option>
-                <option value="">Credicop</option>
+                <option value="BBVA">BBVA</option>
+                <option value="Banco Ciudad">Banco Ciudad</option>
+                <option value="Banco Hipotecario">Banco Hipotecario</option>
+                <option value="Brubank">Brubank</option>
+                <option value="Credicop">Credicop</option>
+                <option value="Galicia">Galicia</option>
+                <option value="ICBC">ICBC</option>
+                <option value="Macro">Macro</option>
+                <option value="Nacion">Nacion</option>
+                <option value="Patagonia">Patagonia</option>
+                <option value="Santander">Santander</option>
+                <option value="Supervielle">Supervielle</option>
+                <option value="Personalizado">Personalizado</option> 
                 <!-- Opciones de bancos -->
             </select>
         </div>
-        <div class="input-group">
+        <div class="input-group" id="div-sueldo">
             <label for="financiacion">¿Cobras Sueldo en el Banco?</label>
             <select id="sueldo" name="sueldo">
                 <option value="">Seleccionar</option>
-                <option value="">Si</option>
-                <option value="">No</option>
+                <option value="si">Si</option>
+                <option value="no">No</option>
                 </select>
         </div>
         <div class="input-group">
@@ -44,15 +44,14 @@
             <input type="number" id="valor-propiedad" name="valor-propiedad" placeholder="$" step="0.01">
         </div>
         <div class="input-group">
-            <label for="valor-propiedad"> Monto a Solicitar (USD):</label>
+            <label for="monto-solicitado"> Monto a Solicitar (USD):</label>
             <input type="number" id="monto-solicitado" name="monto-solicitado" placeholder="$" step="0.01">
         </div>
-
-        <div class="input-group">
-            <label for="financiacion">Financiación (%):</label>
+        <div id="div-financiacion" class="input-group" style="display: none;">
+            <label for="financiacion">(%) Máximo de Financiación:</label>
             <input type="number" id="financiacion" name="financiacion" step="0.01">
         </div>
-        <div class="input-group">
+        <div class="input-group" id="div-tasaPersonalizada" style="display: none;">
             <label for="tasa-nominal">Tasa Nominal Anual:</label>
             <input type="number" id="tasa-nominal" name="tasa-nominal" step="0.01">
         </div>
@@ -76,6 +75,16 @@
             <input type="number" id="tipo-cambio-uva" name="tipo-cambio-uva" step="0.01">
         </div>
     </form>
-<script src="./main.js"></script>
+    <div>
+        <button type="button" onclick="calcularCredito()">Calcular</button>
+        <button id="reset" type="button">Resetear Resultado</button>
+    </div>
+    <div id="resultado"></div>
+
+    <p> Ir a cotizadores</p>
+    <button><a href=".//pages/cotizador.html">Cotizador</a></button>
+<script src="./js/main.js"></script>
+<script src="./js/bancos.js"></script>
+<script src="./js/mostrarMenus.js"></script>
 </body>
 </html>

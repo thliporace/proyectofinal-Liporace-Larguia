@@ -27,6 +27,21 @@ input[type="number"] {
     margin-bottom: 15px;
 }
 
-.alerta {
-    background-color: yellow;
+.tabla-resultado {
+    border: solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    .tr {
+        text-align: center;
+        font-weight: 500;
+    }
+}
+.tabla-solucion {
+    border: solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    .tr {
+        text-align: center;
+        font-weight: 500;
+    }
 }

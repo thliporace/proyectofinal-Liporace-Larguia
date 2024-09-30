@@ -1,0 +1,1 @@
+los JSON se bajaron para ver la forma en la que busco la info de la api del bcra
