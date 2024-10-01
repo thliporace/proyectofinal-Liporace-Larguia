@@ -1,9 +1,9 @@
-// Función para obtener las condiciones del banco
+// condiciones del banco
 function obtenerCondicionesBanco(banco) {
     return bancos[banco] || null;
 }
 
-// Función para calcular el crédito
+// Calcular el crédito
 function calcularCredito() {
     let banco = document.getElementById("banco").value;
     let sueldo = document.getElementById("sueldo").value;
@@ -11,7 +11,7 @@ function calcularCredito() {
     let plazo = parseInt(document.getElementById("plazo-credito").value);
     let montoPropiedad = parseFloat(document.getElementById("valor-propiedad").value)
 
-    // Validar que se ingresaron datos válidos
+    // Chequear que se ingresaron datos válidos
     if (monto >= montoPropiedad) {
         document.getElementById("resultado").innerHTML = "El monto solicitado del crédito excede el valor de la propiedad.";
         return;
@@ -26,7 +26,7 @@ function calcularCredito() {
         return;
     }
 
-    // Validar condiciones del banco (plazo, monto máximo)
+    // Validar condiciones plazo y monto máximo
     if (plazo > condiciones.plazoMax) {
         document.getElementById("resultado").innerHTML = `El plazo máximo para ${banco} es de ${condiciones.plazoMax} años.`;
         return;
@@ -79,7 +79,7 @@ function calcularCredito() {
         let amortizacion = cuota - intereses; // Amortización del capital
         deuda -= amortizacion; // Deuda restante
 
-        // Formatear la fecha para que sea más legible
+        // Formatear la fecha
         let fechaCuota = new Date(fechaActual);
         fechaCuota.setMonth(fechaCuota.getMonth() + mes);
         let fechaFormateada = fechaCuota.toLocaleDateString("es-ES");
@@ -104,6 +104,6 @@ function calcularCredito() {
 
 // Resetear el resultado y limpiar el resumen y la tabla
 function resetearResultado() {
-    document.getElementById("resultado").innerHTML = ""; // Limpiar el contenido del div de resultados
+    document.getElementById("resultado").innerHTML = "";
 }
 document.getElementById("reset").addEventListener("click", resetearResultado);
