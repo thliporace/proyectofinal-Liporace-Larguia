@@ -33,3 +33,4 @@ async function buscarCotizaciones() {
         document.getElementById('resultado').innerHTML = 'Error en la conexión: ' + error;
     }
 }
+

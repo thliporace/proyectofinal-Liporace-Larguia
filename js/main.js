@@ -37,23 +37,31 @@ function calcularCredito() {
         return;
     }
 
+    let valorUva = document.getElementById("tipo-cambio-uva").value;
+    let valorUsd = document.getElementById("tipo-cambio-usd").value;
+    
+    let montoUVA = ((monto * valorUsd) / valorUva).toFixed(2)
+
     // Obtener la tasa de interés basada en si cobra o no sueldo en el banco
     let tasa = sueldo === "si" ? condiciones.tasaConSueldo : condiciones.tasaSinSueldo;
 
     // Cálculo de la cuota mensual
     let tasaMensual = tasa / 12;
     let nPagos = plazo * 12;
-    let cuota = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -nPagos));
+    let cuota = (montoUVA * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -nPagos));
+
+    const variacionMensual = 0.0244689679315399;
+    let pesoActualizado = (valorUva*(1+variacionMensual)).toFixed(2)
+
 
     // Crear resumen de la selección
     let resumenHtml = `
         <h3>Resumen de la Selección</h3>
         <p><strong>Banco:</strong> ${banco}</p>
-        <p><strong>Monto a Financiar:</strong> $${monto.toFixed(2)}</p>
+        <p><strong>Monto a Financiar:</strong> $${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(montoUVA)} UVA</p>
         <p><strong>Tasa de Interés:</strong> ${(tasa * 100).toFixed(2)}%</p>
-        <p><strong>Cuota Mensual:</strong> $${cuota.toFixed(2)}</p>
+        <p><strong>Cuota Mensual:</strong> $${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota)} UVA</p>
     `;
-
     // Crear tabla de resultados
     let resultadoHtml = `
         <table class="tabla-resultado">
@@ -65,6 +73,8 @@ function calcularCredito() {
                     <th>Intereses</th>
                     <th>Amort. Cap.</th>
                     <th>Deuda</th>
+                    <!-- <th>Cuota en Pesos</th>
+                    <th>Deuda en Pesos</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -87,11 +97,20 @@ function calcularCredito() {
         resultadoHtml += `
             <tr class="tabla-solucion">
                 <td>${mes}</td>
+
                 <td>${fechaFormateada}</td>
-                <td>$${cuota.toFixed(2)}</td>
-                <td>$${intereses.toFixed(2)}</td>
-                <td>$${amortizacion.toFixed(2)}</td>
-                <td>$${Math.max(deuda, 0).toFixed(2)}</td>
+
+                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota)}</td>
+
+                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(intereses)}</td>
+
+                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amortizacion)}</td>
+
+                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Math.max(deuda, 0))}</td>
+
+                <!-- <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota * pesoActualizado)}</td>
+
+                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format((deuda * pesoActualizado).toFixed(2))}</td> -->
             </tr>
         `;
     }
@@ -100,6 +119,10 @@ function calcularCredito() {
         </table>
     `;
     document.getElementById("resultado").innerHTML = resumenHtml + resultadoHtml;
+    
+    // Guardar la cotización en el localStorage
+    let cotizacionGuardada = document.getElementById("resultado").innerHTML;
+    localStorage.setItem('ultimaCotizacion', cotizacionGuardada);
 }
 
 // Resetear el resultado y limpiar el resumen y la tabla

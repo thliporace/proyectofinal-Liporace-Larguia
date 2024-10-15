@@ -19,7 +19,7 @@ async function buscarUva() {
 
         const data = await response.json();
         
-        // // Imprimir la respuesta completa para depuración (opcional)
+        // Imprimir la respuesta completa para depuración (opcional)
         // console.log(data);  
 
         // Acceder a los resultados
