@@ -80,49 +80,67 @@ function calcularCredito() {
             <tbody>
     `;
 
-    let deuda = monto;
+    let deuda = montoUVA;
     let fechaActual = new Date(); // Fecha actual
+// Crear arrays para almacenar los valores para el gráfico
+    let deudasTotales = [];
+    let interesesTotales = [];
+    let fechas = [];
 
-    // Generar la tabla de cuotas
-    for (let mes = 1; mes <= nPagos; mes++) {
-        let intereses = deuda * tasaMensual; // Intereses del mes
-        let amortizacion = cuota - intereses; // Amortización del capital
-        deuda -= amortizacion; // Deuda restante
+// Generar la tabla de cuotas
+for (let mes = 1; mes <= nPagos; mes++) {
+    let intereses = deuda * tasaMensual; // Intereses del mes
+    let amortizacion = cuota - intereses; // Amortización del capital
+    deuda -= amortizacion; // Deuda restante
 
-        // Formatear la fecha
-        let fechaCuota = new Date(fechaActual);
-        fechaCuota.setMonth(fechaCuota.getMonth() + mes);
-        let fechaFormateada = fechaCuota.toLocaleDateString("es-ES");
+    // Formatear la fecha
+    let fechaCuota = new Date(fechaActual);
+    fechaCuota.setMonth(fechaCuota.getMonth() + mes);
+    let fechaFormateada = fechaCuota.toLocaleDateString("es-ES");
 
-        resultadoHtml += `
-            <tr class="tabla-solucion">
-                <td>${mes}</td>
+    // Almacenar los valores en los arrays para el gráfico
+    deudasTotales.push(Math.max(deuda, 0));
+    interesesTotales.push(intereses);
+    fechas.push(fechaFormateada);
 
-                <td>${fechaFormateada}</td>
-
-                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota)}</td>
-
-                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(intereses)}</td>
-
-                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amortizacion)}</td>
-
-                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Math.max(deuda, 0))}</td>
-
-                <!-- <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota * pesoActualizado)}</td>
-
-                <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format((deuda * pesoActualizado).toFixed(2))}</td> -->
-            </tr>
-        `;
-    }
     resultadoHtml += `
-            </tbody>
-        </table>
+        <tr class="tabla-solucion">
+            <td>${mes}</td>
+            <td>${fechaFormateada}</td>
+            <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota)}</td>
+            <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(intereses)}</td>
+            <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amortizacion)}</td>
+            <td>$${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Math.max(deuda, 0))}</td>
+        </tr>
     `;
+}
+
+    resultadoHtml += `</tbody></table>`;
     document.getElementById("resultado").innerHTML = resumenHtml + resultadoHtml;
-    
+
     // Guardar la cotización en el localStorage
     let cotizacionGuardada = document.getElementById("resultado").innerHTML;
     localStorage.setItem('ultimaCotizacion', cotizacionGuardada);
+
+    // Crear las trazas para Plotly
+    var trace1 = {
+        x: fechas, // Eje X: Fechas
+        y: deudasTotales, // Eje Y: Deuda total
+        type: 'scatter',
+        name: 'Deuda total'
+    };
+
+    var trace2 = {
+        x: fechas, // Eje X: Fechas
+        y: interesesTotales, // Eje Y: Intereses mensuales
+        type: 'scatter',
+        name: 'Intereses mensuales'
+    };
+
+    var data = [trace1, trace2];
+
+    // Dibujar el gráfico
+    Plotly.newPlot('myDiv', data);
 }
 
 // Resetear el resultado y limpiar el resumen y la tabla
@@ -130,3 +148,18 @@ function resetearResultado() {
     document.getElementById("resultado").innerHTML = "";
 }
 document.getElementById("reset").addEventListener("click", resetearResultado);
+
+function obtenerUltimaCotizacion() {
+    // Verificar si hay una cotización almacenada en localStorage
+    let ultimaCotizacion = localStorage.getItem('ultimaCotizacion');
+    
+    if (ultimaCotizacion) {
+        // Si existe, mostrarla en el HTML
+        document.getElementById("resultado").innerHTML = ultimaCotizacion;
+    } else {
+        // Si no existe, recalcular el crédito y guardar la nueva cotización
+        calcularCredito(); // Llama a la función que ya tienes
+        let nuevaCotizacion = document.getElementById("resultado").innerHTML;
+        localStorage.setItem('ultimaCotizacion', nuevaCotizacion); // Guardar la cotización
+    }
+}

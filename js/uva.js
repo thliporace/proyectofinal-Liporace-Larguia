@@ -18,12 +18,9 @@ async function buscarUva() {
         }
 
         const data = await response.json();
-        
-        // Imprimir la respuesta completa para depuración (opcional)
-        // console.log(data);  
 
         // Acceder a los resultados
-        const resultados = data.results;  // Cambia a data.results
+        const resultados = data.results; 
 
         if (Array.isArray(resultados) && resultados.length > 0) {
             // Generar un mensaje para todas las cotizaciones
