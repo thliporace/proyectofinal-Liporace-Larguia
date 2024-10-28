@@ -26,7 +26,6 @@ function calcularCredito() {
         return;
     }
 
-    // Validar condiciones plazo y monto máximo
     if (plazo > condiciones.plazoMax) {
         document.getElementById("resultado").innerHTML = `El plazo máximo para ${banco} es de ${condiciones.plazoMax} años.`;
         return;
@@ -54,7 +53,7 @@ function calcularCredito() {
     let pesoActualizado = (valorUva*(1+variacionMensual)).toFixed(2)
 
 
-    // Crear resumen de la selección
+    // resumen de la selección
     let resumenHtml = `
         <h3>Resumen de la Selección</h3>
         <p><strong>Banco:</strong> ${banco}</p>
@@ -62,7 +61,7 @@ function calcularCredito() {
         <p><strong>Tasa de Interés:</strong> ${(tasa * 100).toFixed(2)}%</p>
         <p><strong>Cuota Mensual:</strong> $${new Intl.NumberFormat('es-ES', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(cuota)} UVA</p>
     `;
-    // Crear tabla de resultados
+    // tabla de resultados
     let resultadoHtml = `
         <table class="tabla-resultado">
             <thead>
@@ -81,17 +80,17 @@ function calcularCredito() {
     `;
 
     let deuda = montoUVA;
-    let fechaActual = new Date(); // Fecha actual
-// Crear arrays para almacenar los valores para el gráfico
+    let fechaActual = new Date();
+// arrays para el grafico final
     let deudasTotales = [];
     let interesesTotales = [];
     let fechas = [];
 
-// Generar la tabla de cuotas
+// tabla de cuotas de la cotizacion
 for (let mes = 1; mes <= nPagos; mes++) {
-    let intereses = deuda * tasaMensual; // Intereses del mes
-    let amortizacion = cuota - intereses; // Amortización del capital
-    deuda -= amortizacion; // Deuda restante
+    let intereses = deuda * tasaMensual;
+    let amortizacion = cuota - intereses; 
+    deuda -= amortizacion;
 
     // Formatear la fecha
     let fechaCuota = new Date(fechaActual);
@@ -122,7 +121,6 @@ for (let mes = 1; mes <= nPagos; mes++) {
     let cotizacionGuardada = document.getElementById("resultado").innerHTML;
     localStorage.setItem('ultimaCotizacion', cotizacionGuardada);
 
-    // Crear las trazas para Plotly
     var trace1 = {
         x: fechas, // Eje X: Fechas
         y: deudasTotales, // Eje Y: Deuda total
@@ -138,8 +136,6 @@ for (let mes = 1; mes <= nPagos; mes++) {
     };
 
     var data = [trace1, trace2];
-
-    // Dibujar el gráfico
     Plotly.newPlot('myDiv', data);
 }
 
@@ -158,8 +154,8 @@ function obtenerUltimaCotizacion() {
         document.getElementById("resultado").innerHTML = ultimaCotizacion;
     } else {
         // Si no existe, recalcular el crédito y guardar la nueva cotización
-        calcularCredito(); // Llama a la función que ya tienes
+        calcularCredito(); 
         let nuevaCotizacion = document.getElementById("resultado").innerHTML;
-        localStorage.setItem('ultimaCotizacion', nuevaCotizacion); // Guardar la cotización
+        localStorage.setItem('ultimaCotizacion', nuevaCotizacion); 
     }
 }
